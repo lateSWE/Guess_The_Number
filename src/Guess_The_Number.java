@@ -1,49 +1,62 @@
-import java.util.Random;
 import java.util.Scanner;
 public class Guess_The_Number {
-    public static void main(String args[]){
-        boolean run = true;
-        boolean game_run = true;
+    public static void main(String args[]) {
         Scanner input = new Scanner(System.in);
 
-        while (run){
+        while (true) {
             int times = 0;
-            int guess = 0;
+            double max;
+            double min;
+            double guess;
+            int caset;
 
+            while (true) {
+                System.out.println("Max number?");
+                max = input.nextLong();
+                System.out.println("Min number?");
+                min = input.nextLong();
+                if (max > min) {
+                    break;
+                } else {
+                    System.out.println("Error some thing went wrong, try again");
+                    System.out.println();
+                }
+            }
+            double number = Math.random() * Math.floor(max) + min;
 
-            System.out.println("Max number?");
-            int max = input.nextInt();
-            System.out.println("Min number?");
-            int min = input.nextInt();
-            Random r = new Random();
-            int number = r.nextInt(max-min) - min;
-
-            game_run = true;
-            do{
+            do {
                 System.out.println("What number do you guess it is?");
-                guess = input.nextInt();
+                guess = input.nextDouble();
 
-                if(guess < number - 1){
+                if (guess < number - 1) {
                     System.out.println("Your guess is below the right number");
                     System.out.println();
-                }else if(guess > number - 1){
+                } else if (guess > number - 1) {
                     System.out.println("Your guess is above the right number");
                     System.out.println();
-                }else if(guess == number - 1){
+                } else if (guess == number - 1) {
                     System.out.println("You are right");
-                    game_run = false;
+                    times++;
                     break;
                 }
-            }while(game_run);
+                times++;
+            } while (true);
             System.out.println();
             System.out.println("You did it in " + times + " tries");
             System.out.println();
             System.out.println("1 - Again");
             System.out.println("2 - Quit");
-            guess = input.nextInt();
-            if(guess == 2){
-                break;
+            caset = input.nextInt();
+            switch (caset) {
+                case 1:
+                    System.out.println("Go ahead, play again\n\n");
+
+                case 2:
+                    System.out.println("Bye, bye!");
+                    break;
             }
         }
     }
 }
+
+
