@@ -3,7 +3,7 @@ public class Guess_The_Number {
     public static void main(String args[]) {
         Scanner input = new Scanner(System.in);
 
-        while (true) {
+        while (true) {                                  //most outer loop
             int times = 0;
             double max;
             double min;
@@ -39,7 +39,7 @@ public class Guess_The_Number {
                     System.out.println("You are right");
                     times++;
                     break;
-                } else if (guess == -1){
+                } else if (guess == -1){                                    //so people can exit without guessing the right number
                     break;
                 }
                 times++;
@@ -51,17 +51,17 @@ public class Guess_The_Number {
                 System.out.println("\n You quited!");
             }
 
-            System.out.println();               //|shows the choices to the user
-            System.out.println("1 - Again");    //|
-            System.out.println("2 - Quit");     //|
+            System.out.println();                                   //|shows the choices to the user
+            System.out.println("1 - Again");                        //|
+            System.out.println("2 - Quit");                         //|
 
             case1 = input.nextInt();    //takes a input from
             switch (case1) {
-                case 1:                 //if the player wants to play again
+                case 1:                                             //if the player wants to play again
                     System.out.println("Go ahead, play again \n");
                     break;
 
-                case 2:                 //if the user want sto quit
+                case 2:                                             //if the user want sto quit
                     System.out.println("Bye, bye!");
                     break;
 
@@ -69,7 +69,7 @@ public class Guess_The_Number {
                     System.out.println("Not an action!(error)");
                     break;
             }
-            if (case1 == 2) break;
+            if (case1 == 2) break;                                  //makes it so it breaks the most outer loop
         }
     }
 }
