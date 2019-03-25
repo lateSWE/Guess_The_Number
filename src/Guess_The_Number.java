@@ -22,7 +22,8 @@ public class Guess_The_Number {
                     System.out.println();
                 }
             }
-            double number = Math.random() * Math.floor(max) + min; //generates a double variable (a double because it can be a longer)
+            double GeneratedNumber = Math.random() * Math.floor(max) + min; //generates a double variable (a double because it can be a longer)
+            long number = (long) GeneratedNumber;
 
             do {
                 System.out.println("What number do you guess it is?\n" +    //asks the user what he/she guesses
